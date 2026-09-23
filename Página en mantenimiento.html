@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sitio en mantenimiento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    --bg: #12141c;
+    --surface: #191c26;
+    --line: #2a2e3d;
+    --text: #e8e6df;
+    --muted: #8b8fa3;
+    --amber: #e8a33d;
+    --amber-dim: #4a3a20;
+  }
+
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f3f2ee;
+      --surface: #ffffff;
+      --line: #dedcd4;
+      --text: #1c1c1a;
+      --muted: #6b6a63;
+      --amber: #b5720f;
+      --amber-dim: #f0dfbc;
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg: #f3f2ee;
+    --surface: #ffffff;
+    --line: #dedcd4;
+    --text: #1c1c1a;
+    --muted: #6b6a63;
+    --amber: #b5720f;
+    --amber-dim: #f0dfbc;
+  }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 560px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 40px clamp(24px, 6vw, 56px);
+  }
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.6);
+    animation: pulse 2.2s ease-out infinite;
+    flex-shrink: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot { animation: none; }
+  }
+
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.55); }
+    70%  { box-shadow: 0 0 0 9px rgba(232, 163, 61, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(232, 163, 61, 0); }
+  }
+
+  h1 {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.15;
+    margin: 0 0 16px;
+    max-width: 20ch;
+  }
+
+  p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0 0 28px;
+    max-width: 42ch;
+  }
+
+  .meta {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .meta-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--muted);
+  }
+
+  .meta-line b {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  a {
+    color: var(--amber);
+    text-decoration: none;
+    border-bottom: 1px solid var(--amber-dim);
+  }
+
+  a:hover, a:focus-visible {
+    border-bottom-color: var(--amber);
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+  <main class="card">
+    <div class="status-row">
+      <span class="dot" aria-hidden="true"></span>
+      EN MANTENIMIENTO
+    </div>
+
+    <h1>Estamos afinando algunas cosas por aquí.</h1>
+
+    <p>
+      El sitio está temporalmente fuera de línea mientras aplicamos
+      actualizaciones. No debería tardar mucho — vuelve a intentarlo en
+      un rato.
+    </p>
+
+    <div class="meta">
+      <div class="meta-line">
+        <span>Estado</span>
+        <b>Actualizando</b>
+      </div>
+      <div class="meta-line">
+        <span>Tiempo estimado</span>
+        <b>~1 hora</b>
+      </div>
+      <div class="meta-line">
+        <span>Contacto</span>
+        <b><a href="mailto:soporte@tudominio.com">soporte@tudominio.com</a></b>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
